@@ -13,6 +13,14 @@
         --topBarLinkHoverBackground: #556;
         --font-size: 16px;
         --cartWidth: 400px;
+        --cartBackground: #001;
+        --cartTableMargin: 10px;
+        --buttonRadius: 3px;
+      }
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
       }
       body {
         background: var(--bodyBackground);
@@ -21,13 +29,70 @@
       h1 {
         margin: 0px;
       }
+      th {
+        font-weight: bold;
+      }
+
+
+      /* UTILITY */
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        border: 0px;
+        margin: -1px;
+        padding: 0px;
+        clip: rect(0, 0, 0, 0);
+        overflow: hidden;
+      }
+      .sr-only-focusable:active,
+      .sr-only-focusable:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0px;
+        clip: auto;
+        overflow: visible;
+      }
+      .spread {
+        display: flex;
+        justify-content: space-between;
+      }
+      .btn {
+        border: 0px;
+        border-radius: var(--buttonRadius);
+        padding: 5px 12px;
+        font-weight: bold;
+        vertical-align: middle;
+      }
+      .btn:active {
+        padding: 6px 11px 4px 13px;
+      }
+      .btn-dark {
+        background: var(--topNavBackground);
+        color: var(--topNavColor);
+      }
+      .btn-dark:hover {
+        background: var(--cartBackground);
+        color: var(--bodyBackground);
+      }
+      .btn-light {
+        background: var(--topNavColor);
+        color: var(--topNavBackground);
+      }
+      .btn-light:hover {
+        background: var(--bodyBackground);
+        color: var(--cartBackground);
+      }
+      .center {
+        text-align: center;
+      }
 
 
       /* TOP NAV */
 
       .top-bar {
-        display: flex;
-        justify-content: space-between;
         background: var(--topNavBackground);
         color: var(--topNavColor);
         font-size: 0px;
@@ -36,7 +101,7 @@
         display: inline-block;
       }
       .top-bar-link,
-      .cart-link {
+      .top-bar-cart-link {
         display: inline-block;
         border-right: 1px solid var(--topNavColor);
         padding: 15px 19px;
@@ -47,11 +112,11 @@
       .top-bar-link:hover {
         background: var(--topBarLinkHoverBackground);
       }
-      .cart-link {
+      .top-bar-cart-link {
         border: 0px;
         font-size: var(--font-size);
       }
-      .cart-link:hover {
+      .top-bar-cart-link:hover {
         text-decoration: underline;
       }
 
@@ -63,6 +128,16 @@
         max-width: 960px;
         margin: 0px auto;
         padding-top: 35px;
+      }
+      .product-table {
+        width: 100%;
+      }
+      .product-image {
+        max-width: 100px;
+        max-height: 100px;
+      }
+      .quantity-input {
+        width: 100px;
       }
 
 
@@ -81,7 +156,7 @@
       }
       .cart {
         position: relative;
-        background: #001;
+        background: var(--cartBackground);
         color: var(--topNavColor);
         transition: 1s ease right;
       }
@@ -91,7 +166,32 @@
       .cart-title {
         background: #335;
         border-bottom: 1px solid var(--topNavColor);
-        padding: 15px 0px 15px 15px;
+        padding: 15px;
+      }
+      .cart-close {
+        background: transparent;
+        border: 0px;
+        border-radius: var(--buttonRadius);
+        padding: 0px 13px;
+        color: var(--bodyBackground);
+        font-size: var(--font-size);
+        font-weight: bold;
+      }
+      .cart-close:hover {
+        background: var(--cartBackground);
+      }
+      .cart-table {
+        width: calc(var(--cartWidth) - calc(var(--cartTableMargin) * 2));
+        border-collapse: collapse;
+        margin: var(--cartTableMargin);
+        font-size: calc(var(--font-size) - 3px);
+      }
+      .cart-image {
+        max-width: 45px;
+        max-height: 45px;
+      }
+      .cart-wrapper {
+        margin: var(--cartTableMargin);
       }
     </style>
   </head>
@@ -99,28 +199,106 @@
 
     <div id="app">
 
-      <header class="top-bar">
+      <header class="top-bar spread">
         <nav class="top-bar-nav">
           <a href="#" class="top-bar-link">Home</a>
           <a href="#" class="top-bar-link">Products</a>
           <a href="#" class="top-bar-link">Past Orders</a>
         </nav>
         <span>
-          <a href="#" class="cart-link">Cart (0)</a>
+          <a href="#" class="top-bar-cart-link">Cart (0)</a>
         </span>
       </header>
 
       <main class="wrapper">
         <h1>Products</h1>
+
+        <table class="product-table">
+          <thead>
+            <tr>
+              <td><span class="sr-only">Product Image</span></td>
+              <td>Product</td>
+              <td>Price</td>
+              <td>Quantity</td>
+              <td>Total</td>
+              <td><span class="sr-only">Actions</span></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="images/samsung-fold.png" alt="Samsung Fold" class="product-image"></td>
+              <td>Samsung Fold</td>
+              <td>£1,599.99</td>
+              <td><input type="number" min="1" value="1" class="quantity-input"></td>
+              <td>£1,599.99</td>
+              <td><button class="btn btn-dark">Add</button></td>
+            </tr>
+          </tbody>
+        </table>
       </main>
 
       <aside class="cart-container">
         <div class="cart">
-          <h1 class="cart-title">Cart</h1>
+          <h1 class="cart-title spread">
+            Cart
+            <button class="cart-close">X</button>
+          </h1>
+
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <th><span class="sr-only">Product Image</span></th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Qty</th>
+                <th>Total</th>
+                <th><span class="sr-only">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><img src="images/samsung-fold.png" alt="Samsung Fold" class="cart-image"></td>
+                <td>Samsung Fold</td>
+                <td>£1,599.99</td>
+                <td class="center">1</td>
+                <td>£1,599.99</td>
+                <td class="center"><button class="btn btn-light">X</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="cart-wrapper">
+            <p class="center"><em>No items in cart</em></p>
+            <div class="spread">
+              <span><strong>Total:</strong> £1,599.99</span>
+              <button class="btn btn-light">Checkout</button>
+            </div>
+          </div>
         </div>
       </aside>
 
     </div>
+
+    <script>
+    const products = [
+      {
+        id: 0,
+        image: 'images/samsung-fold.png'
+        name: 'Samsung Fold',
+        price: {
+          usd: 1979.99,
+          gbp: 1599.99
+        },
+        quantity: 1,
+        type: 'phone'
+      }
+    ];
+
+    (1599.99).toLocaleString('en-GB', {
+      style: 'currency',
+      currency: 'GBP'
+    }); // '£1,599.99'
+    </script>
 
   </body>
 </html>
