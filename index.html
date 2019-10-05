@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Product and Cart Demo</title>
+    <link rel="stylesheet" href="normalize.css">
+    <style>
+      /* GLOBAL */
+
+      :root {
+        --bodyBackground: #DEFFF8;
+        --topNavBackground: #223;
+        --topNavColor: #DDE;
+        --topBarLinkHoverBackground: #556;
+        --font-size: 16px;
+        --cartWidth: 400px;
+      }
+      body {
+        background: var(--bodyBackground);
+        font-family: "avenir next", avenir, ubuntu, roboto, noto, "segoe ui", sans-serif;
+      }
+      h1 {
+        margin: 0px;
+      }
+
+
+      /* TOP NAV */
+
+      .top-bar {
+        display: flex;
+        justify-content: space-between;
+        background: var(--topNavBackground);
+        color: var(--topNavColor);
+        font-size: 0px;
+      }
+      .top-bar-nav {
+        display: inline-block;
+      }
+      .top-bar-link,
+      .cart-link {
+        display: inline-block;
+        border-right: 1px solid var(--topNavColor);
+        padding: 15px 19px;
+        color: var(--topNavColor);
+        font-size: var(--font-size);
+        text-decoration: none;
+      }
+      .top-bar-link:hover {
+        background: var(--topBarLinkHoverBackground);
+      }
+      .cart-link {
+        border: 0px;
+        font-size: var(--font-size);
+      }
+      .cart-link:hover {
+        text-decoration: underline;
+      }
+
+
+      /* MAIN */
+
+      .wrapper {
+        width: 100%;
+        max-width: 960px;
+        margin: 0px auto;
+        padding-top: 35px;
+      }
+
+
+      /* CART*/
+
+      .cart-container {
+        position: absolute;
+        overflow: hidden;
+      }
+      .cart-container,
+      .cart {
+        top: 0px;
+        right: 0px;
+        width: var(--cartWidth);
+        height: 100%;
+      }
+      .cart {
+        position: relative;
+        background: #001;
+        color: var(--topNavColor);
+        transition: 1s ease right;
+      }
+      .cart.hide {
+        right: calc(var(--cartWidth) * -1);
+      }
+      .cart-title {
+        background: #335;
+        border-bottom: 1px solid var(--topNavColor);
+        padding: 15px 0px 15px 15px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="app">
+
+      <header class="top-bar">
+        <nav class="top-bar-nav">
+          <a href="#" class="top-bar-link">Home</a>
+          <a href="#" class="top-bar-link">Products</a>
+          <a href="#" class="top-bar-link">Past Orders</a>
+        </nav>
+        <span>
+          <a href="#" class="cart-link">Cart (0)</a>
+        </span>
+      </header>
+
+      <main class="wrapper">
+        <h1>Products</h1>
+      </main>
+
+      <aside class="cart-container">
+        <div class="cart">
+          <h1 class="cart-title">Cart</h1>
+        </div>
+      </aside>
+
+    </div>
+
+  </body>
+</html>
