@@ -1,0 +1,23 @@
+{
+  "name": "product-and-cart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server --ignore=.git,node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheJaredWilcurt/product-and-cart.git"
+  },
+  "keywords": [],
+  "author": "Gwendolyn Faraday",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheJaredWilcurt/product-and-cart/issues"
+  },
+  "homepage": "https://github.com/TheJaredWilcurt/product-and-cart#readme",
+  "dependencies": {
+    "live-server": "1.2.1"
+  }
+}
