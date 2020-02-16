@@ -3,6 +3,7 @@
   <head>
     <title>Product and Cart Demo</title>
     <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/icofont.min.css">
     <style>
       /* GLOBAL */
 
@@ -100,6 +101,31 @@
       .top-bar-nav {
         display: inline-block;
       }
+      .logo {
+        position: relative;
+        margin: 0px -44px 0px 0px;
+        padding: 0px 0px 0px 5px;
+        color: var(--topNavColor);
+        direction: ltr;
+        font-family: IcoFont;
+        font-size: 39px;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        line-height: 1;
+        text-decoration: none;
+        text-transform: none;
+        white-space: nowrap;
+        word-wrap: normal;
+        vertical-align: -5px;
+        speak: none;
+        z-index: 10;
+        -webkit-font-feature-settings: 'liga';
+        -webkit-font-smoothing: antialiased;
+      }
+      .logo:before {
+        content: '\eb92';
+      }
       .top-bar-link,
       .top-bar-cart-link {
         display: inline-block;
@@ -108,6 +134,9 @@
         color: var(--topNavColor);
         font-size: var(--font-size);
         text-decoration: none;
+      }
+      .top-bar-link:nth-of-type(2) {
+        padding-left: 58px;
       }
       .top-bar-link:hover {
         background: var(--topBarLinkHoverBackground);
@@ -201,6 +230,7 @@
 
       <header class="top-bar spread">
         <nav class="top-bar-nav">
+          <a href="#" class="logo"></a>
           <a href="#" class="top-bar-link">Home</a>
           <a href="#" class="top-bar-link">Products</a>
           <a href="#" class="top-bar-link">Past Orders</a>
@@ -226,11 +256,11 @@
           </thead>
           <tbody>
             <tr>
-              <td><img src="images/samsung-fold.png" alt="Samsung Fold" class="product-image"></td>
-              <td>Samsung Fold</td>
-              <td>£1,599.99</td>
+              <td><i class="icofont-carrot icofont-4x"></td>
+              <td>Carrot</td>
+              <td>$1.00</td>
               <td><input type="number" min="1" value="1" class="quantity-input"></td>
-              <td>£1,599.99</td>
+              <td>$1.00</td>
               <td><button class="btn btn-dark">Add</button></td>
             </tr>
           </tbody>
@@ -257,11 +287,11 @@
             </thead>
             <tbody>
               <tr>
-                <td><img src="images/samsung-fold.png" alt="Samsung Fold" class="cart-image"></td>
-                <td>Samsung Fold</td>
-                <td>£1,599.99</td>
+                <td><i class="icofont-carrot icofont-3x"></i></td>
+                <td>Carrot</td>
+                <td>$1.00</td>
                 <td class="center">1</td>
-                <td>£1,599.99</td>
+                <td>$1.00</td>
                 <td class="center"><button class="btn btn-light">X</button></td>
               </tr>
             </tbody>
@@ -270,7 +300,7 @@
           <div class="cart-wrapper">
             <p class="center"><em>No items in cart</em></p>
             <div class="spread">
-              <span><strong>Total:</strong> £1,599.99</span>
+              <span><strong>Total:</strong> $1.00</span>
               <button class="btn btn-light">Checkout</button>
             </div>
           </div>
@@ -283,21 +313,21 @@
     const products = [
       {
         id: 0,
-        image: 'images/samsung-fold.png'
-        name: 'Samsung Fold',
+        icon: 'carrot'
+        name: 'Carrots',
         price: {
-          usd: 1979.99,
-          gbp: 1599.99
+          usd: 1.00,
+          gbp: 0.89
         },
         quantity: 1,
         type: 'phone'
       }
     ];
 
-    (1599.99).toLocaleString('en-GB', {
+    (1.00).toLocaleString('en-GB', {
       style: 'currency',
       currency: 'GBP'
-    }); // '£1,599.99'
+    }); // '$1.00'
     </script>
 
   </body>
