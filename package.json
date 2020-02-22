@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "live-server --entry-file=src/app.html --ignore=.git,node_modules"
+    "start": "live-server --open=/src/app.html --ignore=.git,node_modules"
   },
   "repository": {
     "type": "git",
