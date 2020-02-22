@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Product and Cart Demo</title>
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/icofont.min.css">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="src/styles/normalize.css">
+    <link rel="stylesheet" href="src/styles/icofont.min.css">
+    <link rel="stylesheet" href="src/styles/style.css">
   </head>
   <body>
 
@@ -12,10 +12,10 @@
 
       <header class="top-bar spread">
         <nav class="top-bar-nav">
-          <a href="index.html" class="logo"></a>
-          <a href="index.html" class="top-bar-link">Home</a>
-          <a href="src/products.html" class="top-bar-link">Products</a>
-          <a href="src/past-orders.html" class="top-bar-link">Past Orders</a>
+          <a href="/" class="logo"></a>
+          <a href="/" class="top-bar-link">Home</a>
+          <a href="src/views/products.html" class="top-bar-link">Products</a>
+          <a href="src/views/past-orders.html" class="top-bar-link">Past Orders</a>
         </nav>
         <span>
           <a href="#" class="top-bar-cart-link">Cart (0)</a>
@@ -90,27 +90,6 @@
       </aside>
 
     </div>
-
-    <script>
-    const products = [
-      {
-        id: 0,
-        icon: 'carrot'
-        name: 'Carrots',
-        price: {
-          usd: 1.00,
-          gbp: 0.89
-        },
-        quantity: 1,
-        type: 'phone'
-      }
-    ];
-
-    (1.00).toLocaleString('en-GB', {
-      style: 'currency',
-      currency: 'GBP'
-    }); // '$1.00'
-    </script>
 
   </body>
 </html>
