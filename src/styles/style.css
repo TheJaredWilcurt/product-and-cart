@@ -152,7 +152,7 @@ footer {
     width: 100%;
     height: 500px;
     background-color: #390D04;
-    background-image: url('/public/splash.jpg');
+    background-image: url('../../public/splash.jpg');
     background-position: center center;
     background-size: cover;
 }
@@ -160,7 +160,7 @@ footer {
     display: flex;
     justify-content: center;
     height: 100%;
-    background-image: url('/public/grain.png');
+    background-image: url('../../public/grain.png');
     background-position: top center;
 }
 .splash h1 {
