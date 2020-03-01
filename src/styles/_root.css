@@ -4,9 +4,9 @@
     --topNavColor: #DDE;
     --topBarLinkHoverBackground: #556;
     --splashTextColor: #FF6866;
-    --font-size: 16px;
-    --cartWidth: 400px;
     --cartBackground: #001;
-    --cartTableMargin: 10px;
-    --buttonRadius: 3px;
+    --cartTitleBackground: #335;
+    --footerBackground: #004;
+    --spashBackground: #390D04;
+    --splashTextShadow: #200;
 }
