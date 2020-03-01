@@ -2,6 +2,9 @@
 @import '_root';
 @import '_var.sass';
 
+/* ITCSS: Tools */
+@import '_mixins.sass';
+
 /* ITCSS: Resets */
 @import '../../node_modules/normalize.css/normalize';
 
