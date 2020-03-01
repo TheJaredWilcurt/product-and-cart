@@ -1,0 +1,63 @@
+.top-bar {
+    background: var(--topNavBackground);
+    color: var(--topNavColor);
+    font-size: 0px;
+}
+
+.top-bar-nav {
+    display: inline-block;
+}
+
+.top-bar-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.top-bar-link span,
+.top-bar-cart-link span {
+    display: inline-block;
+    border-right: 1px solid var(--topNavColor);
+    padding: 15px 19px;
+    color: var(--topNavColor);
+    font-size: var(--font-size);
+    text-decoration: none;
+}
+
+.top-bar-link i {
+    margin-left: 10px;
+    color: var(--topNavColor);
+    font-size: 40px;
+    text-decoration: none;
+    vertical-align: -8px;
+}
+
+.top-bar-link:first-of-type span {
+    padding-left: 10px;
+}
+
+.top-bar-cart-link {
+    cursor: default;
+    text-decoration: none;
+}
+
+.top-bar-link:hover {
+    background: var(--topBarLinkHoverBackground);
+}
+
+.top-bar-cart-link span {
+    border: 0px;
+    font-size: var(--font-size);
+}
+
+.top-bar-cart-link:hover span {
+    text-decoration: underline;
+}
+
+.top-bar-cart-link i,
+.top-bar-cart-link:hover i {
+    margin-right: -7px;
+    color: var(--topNavColor);
+    font-size: 31px;
+    text-decoration: none;
+    vertical-align: -4px;
+}
