@@ -18,9 +18,13 @@
         right: $cartWidth * -1
 
 .cart-title
+    align-items: center
+    min-height: $navBarHeight
+    max-height: $navBarHeight
     background: $cartTitleBackground
     border-bottom: 1px solid $topNavColor
-    padding: 15px
+    padding: 0px 15px
+    font-size: 26px
 
 .cart-close
     background: transparent
@@ -28,20 +32,26 @@
     border-radius: $buttonRadius
     padding: 0px 13px
     color: $bodyBackground
-    font-size: $fontSize
+    font-size: $fontSize * 2
     font-weight: bold
     &:hover
         background: $cartBackground
 
 .cart-table
-    width: $cartWidth - ($cartTableMargin * 2)
+    width: $cartWidth - ($cartTableMargin * 3)
     border-collapse: collapse
-    margin: $cartTableMargin
+    margin: 0px
     font-size: $fontSize - 3px
 
 .cart-image
     max-width: 45px
     max-height: 45px
 
-.cart-wrapper
-    margin: $cartTableMargin
+.cart-body
+    max-height: calc(100% - #{$navBarHeight})
+    padding: $cartTableMargin
+    overflow: auto
+
+.cart-remove
+    padding: 0px 7px
+    font-size: $fontSize * 1.25
